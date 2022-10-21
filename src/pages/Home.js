@@ -5,10 +5,9 @@ import './Home.css'
 
 export default function Home(){
     return(
-        <div>
             <div className="home">
                 <div className="home_container">
-                    <img src="https://www.x-cart.com/wp-content/uploads/2019/01/ecommerce-768x278.jpg" alt="" className="home_image" />
+                    <img src="https://www.x-cart.com/wp-content/uploads/2019/01/ecommerce-768x278.jpg" alt="home-image" className="home_image" />
                     <div className="home_row">
                         <Product />
                         <Product />
@@ -23,6 +22,6 @@ export default function Home(){
                     </div>
                 </div>
             </div>
-        </div>
+
     )
 }
