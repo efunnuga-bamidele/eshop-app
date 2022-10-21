@@ -7,8 +7,6 @@ export default function Product({ id, title, price, rating, image}) {
             
     }
     return(
-
-
             <div className="product">
                 <div className="product_info">
                     <p>{title}</p>
@@ -20,7 +18,7 @@ export default function Product({ id, title, price, rating, image}) {
                         {Array(rating)
                             .fill()
                             .map((_, i) => (
-                                <p>⭐</p>
+                                <p key={i}>⭐</p>
                                 ))}
                     </div>
                 </div>
@@ -29,6 +27,5 @@ export default function Product({ id, title, price, rating, image}) {
 
                 <button onClick={(id) => handleAddToCart(id)}>Add to Basket</button>
             </div>
-
     )
 }
