@@ -1,3 +1,4 @@
+import { useStateContext } from '../hooks/useStateContext'
 //Components
 import CheckoutProduct from '../components/CheckoutProduct'
 import Subtotal from '../components/Subtotal'
@@ -5,7 +6,10 @@ import Subtotal from '../components/Subtotal'
 import './Checkout.css'
 
 export default function Checkout() {
+    const { basket } = useStateContext()
     return(
+
+      
         <div className='checkout'>
             <div className="checkout_left">
                 <img src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg" alt="" className="checkout_ad" />
@@ -13,13 +17,15 @@ export default function Checkout() {
                     <h2 className="checkout_title">
                         Your Shopping Basket
                     </h2>
-                    <CheckoutProduct 
-                        id="12321341"
-                        title="Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Blue)"
-                        price={11.96}
-                        rating={5}
-                        image="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg"
+                    {basket && basket.map((item) => (  
+                    <CheckoutProduct key={item.id}
+                        id= {item.id}
+                        title={item.title}
+                        price={item.price}
+                        rating={item.rating}
+                        image={item.image}
                     />
+                    ))}
                 </div>
             </div>
             <div className="checkout_right">

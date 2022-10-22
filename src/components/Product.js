@@ -1,10 +1,24 @@
 
 //Sytles
+import { useStateContext } from '../hooks/useStateContext'
 import './Product.css'
 
 export default function Product({ id, title, price, rating, image}) {
-    const handleAddToCart = (e) => {
-            
+
+    const { dispatch } = useStateContext()
+
+    const handleAddToCart = () => {
+            dispatch({
+                type: "ADD_TO_CART",
+                payload: {
+                    id: id,
+                    title:title,
+                    image: image,
+                    price: price,
+                    rating: rating
+                },
+            })
+
     }
     return(
             <div className="product">
@@ -25,7 +39,7 @@ export default function Product({ id, title, price, rating, image}) {
 
                 <img src={image} alt="product-image" />
 
-                <button onClick={(id) => handleAddToCart(id)}>Add to Basket</button>
+                <button onClick={handleAddToCart}>Add to Basket</button>
             </div>
     )
 }

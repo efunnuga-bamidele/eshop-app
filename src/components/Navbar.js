@@ -5,7 +5,14 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import SearchIcon from '@mui/icons-material/Search';
 //Styles
 import './Navbar.css'
+//hooks
+import { useStateContext } from '../hooks/useStateContext'
+
 export default function Navbar(){
+
+    const { basket } = useStateContext()
+    // console.log(basket)
+
     return(
         <div className='header'>
         <Link to='/'>
@@ -30,7 +37,7 @@ export default function Navbar(){
                 <Link to='/checkout'>
                     <div className='nav_itemBasket'>
                     <ShoppingBasketIcon />
-                        <span className="nav_itemLineTwo nav_basketCount">0</span>
+                        <span className="nav_itemLineTwo nav_basketCount">{basket ? basket.length : 0 }</span>
                     </div>
                 </Link> 
             </div>

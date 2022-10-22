@@ -3,6 +3,7 @@
 //Styles
 import './CheckoutProduct.css'
 export default function CheckoutProduct({ id, title, price, rating, image}) {
+
     return(
         <div className="checkout_product">
                 <img src={image} className="checkoutproduct_image" alt="checkoutproduct_image" />
