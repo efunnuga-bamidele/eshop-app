@@ -17,8 +17,8 @@ export default function Checkout() {
                     <h2 className="checkout_title">
                         Your Shopping Basket
                     </h2>
-                    {basket && basket.map((item) => (  
-                    <CheckoutProduct key={item.id}
+                    {basket && basket.map((item, index) => (  
+                    <CheckoutProduct key={index}
                         id= {item.id}
                         title={item.title}
                         price={item.price}

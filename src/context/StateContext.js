@@ -25,3 +25,7 @@ export const StateContextProvider = ({ children }) => {
         </StateContext.Provider>
     )
 }
+
+// export const getBasketTotal = (basket) => {
+//     return (basket?.reduce((amount, item) => item.price + amount, 0))
+// }
