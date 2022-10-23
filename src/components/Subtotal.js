@@ -22,7 +22,7 @@ export default function Subtotal() {
                 renderText= {(value) => (
                     <>
                         <p>
-                            Subtotal ({basket.length} items): <strong>{value}</strong>
+                            Subtotal ({basket && basket.length} items): <strong>{value}</strong>
                         </p>
                         <small className="subtotal_gift">
                             <input type="checkbox" /> This order contains a gift
@@ -30,7 +30,7 @@ export default function Subtotal() {
                     </>
                 )}
                 decimalScale={2}
-                value={basket?.reduce((amount, item) => item.price + amount, 0)}
+                value={basket ? basket?.reduce((amount, item) => item.price + amount, 0) : 0}
                 displayType={"text"}
                 thousandSeperator={true}
                 prefix={"$"}

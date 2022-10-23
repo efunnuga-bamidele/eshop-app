@@ -1,9 +1,18 @@
-
+import { useStateContext } from '../hooks/useStateContext'
 
 //Styles
 import './CheckoutProduct.css'
 export default function CheckoutProduct({ id, title, price, rating, image}) {
 
+    const {dispatch} = useStateContext()
+
+    const handleRemoveFromBasket = () => {
+     
+        dispatch({
+            type: "REMOVE_FROM_BASKET",
+            payload: id
+        })
+    }
     return(
         <div className="checkout_product">
                 <img src={image} className="checkoutproduct_image" alt="checkoutproduct_image" />
@@ -21,7 +30,7 @@ export default function CheckoutProduct({ id, title, price, rating, image}) {
                         ))}
             </div>
             
-             <button>Remove from Basket</button>
+             <button onClick={handleRemoveFromBasket}>Remove from Basket</button>
         </div>
 
 
