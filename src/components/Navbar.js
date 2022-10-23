@@ -28,11 +28,11 @@ export default function Navbar(){
             <div className="header_nav">
                 <div className="nav_item">
                     <span className="nav_itemLineOne">Hello Guest</span>
-                    <span className="nav_itemLineTwo">Sign In</span>
+                    <Link to="/login"><span className="nav_itemLineTwo">Sign In</span></Link>
                 </div>
                 <div className="nav_item">
                     <span className="nav_itemLineOne">Your</span>
-                    <span className="nav_itemLineTwo">Shop</span>
+                    <Link to="/signup"><span className="nav_itemLineTwo">Shop</span></Link>
                 </div>
                 <Link to='/checkout'>
                     <div className='nav_itemBasket'>
