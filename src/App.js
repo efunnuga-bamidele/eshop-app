@@ -7,6 +7,8 @@ import Checkout from './pages/Checkout';
 
 //Pages
 import Home from './pages/Home'
+import Login from './pages/Login';
+import Signup from './pages/Signup'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Routes>
               <Route path='/' element={<Home />} end></Route>
               <Route path='/checkout' element={<Checkout />}></Route>
+              <Route path='/login' element={<Login />}></Route>
+              <Route path='/signin' element={<Signup />}></Route>
           </Routes>
         </BrowserRouter>
     </div>
