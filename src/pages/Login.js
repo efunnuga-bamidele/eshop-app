@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+
+import { auth } from '../firebase/config';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
 //styles
 import './Login.css'
 //image
@@ -8,11 +12,21 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 export default function Login(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState(null)
     const redirect = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault()
-        console.log("Form submitted", email, password)
+        setError(null)
+        signInWithEmailAndPassword(auth, email, password)
+            .then((res) => {
+                console.log(res)
+                redirect('/')
+            })
+            .catch((err) => {
+                console.log(err.message)
+                setError(err.message)
+            })
 
     }
 
@@ -30,7 +44,7 @@ export default function Login(){
                 </Link>
 
                <div className="login_container">
-               <h1>SIgn-in</h1>
+               <h1>Sign-in</h1>
                     <form onSubmit={handleLogin}>
                     
                     <label>
@@ -44,6 +58,7 @@ export default function Login(){
 
                     <button type='submit' className='login_signInButton'>Sign In</button>
                 </form>
+                <p className='error'>{error && error}</p>
                 <p>
                     By signing-in you agree to the eShop Website Conditions of Use & Sale. Please
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.

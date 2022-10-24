@@ -32,7 +32,10 @@ export const stateReducer = (state = initialState, action) => {
 }
 
 export const StateContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(stateReducer)
+    const [state, dispatch] = useReducer(stateReducer, {
+        user:null,
+        authIsReady: false
+    })
 
     return (
         <StateContext.Provider value={{ ...state, dispatch }}>

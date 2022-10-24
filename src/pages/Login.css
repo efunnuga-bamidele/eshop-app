@@ -79,3 +79,9 @@
     border-color: darkgray;
     cursor: pointer;
 }
+
+.error {
+    color: red;
+    text-align: center;
+    font-weight: 800;
+}
